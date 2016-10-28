@@ -1,0 +1,11 @@
+[package]
+name = "conrod-gui"
+version = "0.1.0"
+authors = ["pfried <philipsfried@gmail.com>"]
+
+[dependencies]
+conrod = "0.44.1"
+piston_window = "0.52"
+
+[dependencies.spiro-client]
+git = "https://github.com/tokio-hacknight/spiro-client.git"
