@@ -1,6 +1,6 @@
 #[macro_use] extern crate conrod;
 extern crate piston_window;
-extern crate spiro_client;
+extern crate spiro;
 
 use piston_window::{EventLoop, PistonWindow, UpdateEvent, WindowSettings};
 use std::sync::mpsc::{channel, Sender, Receiver};
@@ -135,17 +135,17 @@ pub fn run_gui(socket_addr: &str) {
     }
 
     fn create_client(socket_addr: &str) -> Sender<(f64, f64)> {
-        use spiro_client::Client;
+        use spiro::Client;
 
         let (sender, receiver) = channel::<(f64, f64)>();
 
         let addr = socket_addr.to_owned();
 
         std::thread::spawn(move || {
-            let mut client: Client = Client::new(&addr).unwrap();
             loop {
+                let mut client: Client = Client::new(&addr).unwrap();
                 receiver.recv().map(|(x, y)| {
-                    client.send_params(x, y, 0.0, 0.0).unwrap();
+                    client.send_params(x, y);
                 });
             }
         });

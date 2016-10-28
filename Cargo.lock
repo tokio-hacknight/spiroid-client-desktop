@@ -912,8 +912,10 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 [[package]]
 name = "spiro-client"
 version = "0.1.0"
-source = "git+https://github.com/tokio-hacknight/spiro-client.git#182c9b68161ebe337586bd2862936108694b3003"
+source = "git+https://github.com/tokio-hacknight/spiro-client.git#97ff5c1a1bce51b6c45977b15b48b83559c57560"
 dependencies = [
+ "futures 0.1.3 (registry+https://github.com/rust-lang/crates.io-index)",
+ "libc 0.2.17 (registry+https://github.com/rust-lang/crates.io-index)",
  "tokio-core 0.1.0 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
 
